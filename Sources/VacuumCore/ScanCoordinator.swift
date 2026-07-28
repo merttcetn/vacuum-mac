@@ -39,12 +39,16 @@ public actor ScanCoordinator {
         var candidates: [CacheCandidate] = []
         candidates.reserveCapacity(discovered.count)
         let total = discovered.count
+        await progress(ScanProgress(
+            completed: 0,
+            total: total,
+            currentPath: total == 0 ? "Complete" : "Measuring discovered items…"
+        ))
 
-        try await withThrowingTaskGroup(of: CacheCandidate?.self) { group in
-            for (index, item) in discovered.enumerated() {
+        try await withThrowingTaskGroup(of: CacheCandidate.self) { group in
+            for item in discovered {
                 group.addTask { [processInspector] in
                     try Task.checkCancellation()
-                    await progress(ScanProgress(completed: index, total: total, currentPath: item.1.path))
                     if let running = processInspector.firstRunning(in: item.0.processGuard) {
                         return try await Self.measureCandidate(
                             rule: item.0,
@@ -62,10 +66,15 @@ public actor ScanCoordinator {
                     )
                 }
             }
+            var completed = 0
             for try await candidate in group {
-                if let candidate {
-                    candidates.append(candidate)
-                }
+                candidates.append(candidate)
+                completed += 1
+                await progress(ScanProgress(
+                    completed: completed,
+                    total: total,
+                    currentPath: candidate.url.path
+                ))
             }
         }
 
@@ -85,10 +94,16 @@ public actor ScanCoordinator {
         case .exact:
             return [(rule, rule.root, rule.defaultRisk)]
         case .children:
-            return try childDirectories(of: rule.root).map { child in
+            let children = try childDirectories(of: rule.root)
+            return children.compactMap { child in
                 let age = Date.now.timeIntervalSince(modificationDate(of: child))
                 let risk: RiskLevel
                 if rule.id == "xcode.deriveddata" {
+                    guard fileManager.fileExists(
+                        atPath: child.appending(path: "info.plist").path
+                    ) else {
+                        return nil
+                    }
                     risk = age >= (rule.minimumAge ?? 0) ? .safe : .review
                 } else {
                     risk = .review

@@ -124,6 +124,25 @@ final class ScanCoordinatorTests: XCTestCase {
         XCTAssertGreaterThan(npmCandidate.allocatedSize, 0)
     }
 
+    func testProgressCountsCompletedCandidatesMonotonically() async throws {
+        let fixture = try TemporaryDirectory()
+        let home = try fixture.directory("home")
+        try fixture.directory("home/.npm/_cacache")
+        try fixture.directory("home/.cache/uv")
+        let recorder = ScanProgressRecorder()
+
+        let snapshot = try await ScanCoordinator(processInspector: StubProcessInspector())
+            .scan(configuration: scanConfiguration(home: home)) { progress in
+                await recorder.append(progress)
+            }
+        let updates = await recorder.updates
+
+        XCTAssertEqual(snapshot.candidates.count, 2)
+        XCTAssertEqual(updates.map(\.completed), [0, 1, 2, 2])
+        XCTAssertTrue(updates.allSatisfy { $0.total == 2 })
+        XCTAssertEqual(updates.last?.currentPath, "Complete")
+    }
+
     func testXcodeUsesAgeThresholdAndModelsAlwaysRequireReview() async throws {
         let fixture = try TemporaryDirectory()
         let home = try fixture.directory("home")
@@ -133,6 +152,15 @@ final class ScanCoordinatorTests: XCTestCase {
         )
         let newProject = try fixture.directory(
             "home/Library/Developer/Xcode/DerivedData/NewProject-b"
+        )
+        try fixture.file(
+            "home/Library/Developer/Xcode/DerivedData/OldProject-a/info.plist"
+        )
+        try fixture.file(
+            "home/Library/Developer/Xcode/DerivedData/NewProject-b/info.plist"
+        )
+        let globalModuleCache = try fixture.directory(
+            "home/Library/Developer/Xcode/DerivedData/ModuleCache.noindex"
         )
         try fixture.age(oldProject, days: 8)
         try fixture.age(newProject, days: 1)
@@ -149,6 +177,7 @@ final class ScanCoordinatorTests: XCTestCase {
         XCTAssertEqual(byName[newProject.lastPathComponent]?.risk, .review)
         XCTAssertEqual(byName[model.lastPathComponent]?.risk, .review)
         XCTAssertEqual(byName[model.lastPathComponent]?.isSelected, false)
+        XCTAssertNil(byName[globalModuleCache.lastPathComponent])
     }
 
     func testPlaywrightProtectsNewestAndReferencedRevisions() async throws {
@@ -230,5 +259,13 @@ final class ScanCoordinatorTests: XCTestCase {
             XCTAssertTrue(error is CancellationError)
         }
         XCTAssertLessThan(started.duration(to: clock.now), .seconds(1))
+    }
+}
+
+private actor ScanProgressRecorder {
+    private(set) var updates: [ScanProgress] = []
+
+    func append(_ progress: ScanProgress) {
+        updates.append(progress)
     }
 }
