@@ -108,6 +108,10 @@ final class ScanCoordinatorTests: XCTestCase {
         let fixture = try TemporaryDirectory()
         let home = try fixture.directory("home")
         let npm = try fixture.directory("home/.npm/_cacache")
+        _ = try fixture.file(
+            "home/.npm/_cacache/payload",
+            contents: Data(repeating: 0x5A, count: 4_096)
+        )
 
         let snapshot = try await ScanCoordinator(
             processInspector: StubProcessInspector(running: "npm")
@@ -117,6 +121,7 @@ final class ScanCoordinatorTests: XCTestCase {
         XCTAssertEqual(npmCandidate.risk, .protected)
         XCTAssertFalse(npmCandidate.isSelected)
         XCTAssertTrue(npmCandidate.reason.contains("running"))
+        XCTAssertGreaterThan(npmCandidate.allocatedSize, 0)
     }
 
     func testXcodeUsesAgeThresholdAndModelsAlwaysRequireReview() async throws {

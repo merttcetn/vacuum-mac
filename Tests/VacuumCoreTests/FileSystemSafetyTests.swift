@@ -3,6 +3,22 @@ import XCTest
 @testable import VacuumCore
 
 final class FileSystemSafetyTests: XCTestCase {
+    func testProcessInspectorCoalescesCaseInsensitiveGuardNames() {
+        let normalized = ProcessInspector.normalizedNames([
+            "Codex", "codex", "ChatGPT"
+        ])
+
+        XCTAssertEqual(normalized.count, 2)
+        XCTAssertEqual(normalized["codex"], "Codex")
+        XCTAssertEqual(normalized["chatgpt"], "ChatGPT")
+    }
+
+    func testProcessInspectorFindsCurrentProcess() {
+        let processName = ProcessInfo.processInfo.processName
+
+        XCTAssertNotNil(ProcessInspector().firstRunning(in: [processName]))
+    }
+
     func testContainsRejectsSiblingPrefixAndNormalizesTraversal() throws {
         let fixture = try TemporaryDirectory()
         let allowed = try fixture.directory("allowed")

@@ -77,13 +77,15 @@ public struct ProcessInspector: ProcessInspecting, Sendable {
 
     public func firstRunning(in names: Set<String>) -> String? {
         guard !names.isEmpty else { return nil }
-        let lowered = Dictionary(uniqueKeysWithValues: names.map { ($0.lowercased(), $0) })
+        let lowered = Self.normalizedNames(names)
         var pids = [pid_t](repeating: 0, count: 4_096)
-        let bytes = proc_listallpids(&pids, Int32(pids.count * MemoryLayout<pid_t>.size))
-        guard bytes > 0 else { return nil }
-        let count = Int(bytes) / MemoryLayout<pid_t>.size
+        let processCount = proc_listallpids(
+            &pids,
+            Int32(pids.count * MemoryLayout<pid_t>.size)
+        )
+        guard processCount > 0 else { return nil }
 
-        for pid in pids.prefix(count) where pid > 0 {
+        for pid in pids.prefix(Int(processCount)) where pid > 0 {
             var buffer = [CChar](repeating: 0, count: Int(MAXPATHLEN))
             guard proc_name(pid, &buffer, UInt32(buffer.count)) > 0 else { continue }
             let process = String(
@@ -97,5 +99,16 @@ public struct ProcessInspector: ProcessInspecting, Sendable {
             }
         }
         return nil
+    }
+
+    static func normalizedNames(_ names: Set<String>) -> [String: String] {
+        var normalized: [String: String] = [:]
+        for name in names.sorted() {
+            let key = name.lowercased()
+            if normalized[key] == nil {
+                normalized[key] = name
+            }
+        }
+        return normalized
     }
 }

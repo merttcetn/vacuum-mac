@@ -45,8 +45,14 @@ public actor ScanCoordinator {
                 group.addTask { [processInspector] in
                     try Task.checkCancellation()
                     await progress(ScanProgress(completed: index, total: total, currentPath: item.1.path))
-                    if processInspector.firstRunning(in: item.0.processGuard) != nil {
-                        return try Self.makeProtectedCandidate(rule: item.0, url: item.1)
+                    if let running = processInspector.firstRunning(in: item.0.processGuard) {
+                        return try await Self.measureCandidate(
+                            rule: item.0,
+                            url: item.1,
+                            risk: .protected,
+                            ledger: ledger,
+                            reason: "Protected because \(running) is running."
+                        )
                     }
                     return try await Self.measureCandidate(
                         rule: item.0,
@@ -269,7 +275,8 @@ public actor ScanCoordinator {
         rule: CacheRule,
         url: URL,
         risk: RiskLevel,
-        ledger: IdentityLedger
+        ledger: IdentityLedger,
+        reason: String? = nil
     ) async throws -> CacheCandidate {
         let identity = try FileSystemSafety.identity(at: url)
         let size = try await DirectorySizer.measure(url, ledger: ledger)
@@ -281,24 +288,12 @@ public actor ScanCoordinator {
             allocatedSize: size,
             lastModified: modified,
             risk: risk,
-            reason: risk == .protected ? "Protected while active or required by the newest revision" : rule.reason,
+            reason: reason
+                ?? (risk == .protected
+                    ? "Protected while active or required by the newest revision"
+                    : rule.reason),
             rebuildImpact: rule.rebuildImpact,
             processGuard: rule.processGuard
-        )
-    }
-
-    nonisolated private static func makeProtectedCandidate(rule: CacheRule, url: URL) throws -> CacheCandidate {
-        CacheCandidate(
-            ruleID: rule.id,
-            url: url,
-            resourceIdentity: try FileSystemSafety.identity(at: url),
-            allocatedSize: 0,
-            lastModified: (try? url.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate) ?? .distantPast,
-            risk: .protected,
-            reason: "Protected because a related process is running.",
-            rebuildImpact: rule.rebuildImpact,
-            processGuard: rule.processGuard,
-            isSelected: false
         )
     }
 
