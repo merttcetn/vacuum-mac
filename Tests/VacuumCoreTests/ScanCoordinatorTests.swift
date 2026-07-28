@@ -191,10 +191,9 @@ final class ScanCoordinatorTests: XCTestCase {
         let fileValues = try first.resourceValues(forKeys: [
             .totalFileAllocatedSizeKey, .fileAllocatedSizeKey
         ])
-        let expected = Int64(
-            (rootValues.totalFileAllocatedSize ?? rootValues.fileAllocatedSize ?? 0)
-                + (fileValues.totalFileAllocatedSize ?? fileValues.fileAllocatedSize ?? 0)
-        )
+        let rootBytes = rootValues.totalFileAllocatedSize ?? rootValues.fileAllocatedSize ?? 0
+        let fileBytes = fileValues.totalFileAllocatedSize ?? fileValues.fileAllocatedSize ?? 0
+        let expected = Int64(rootBytes + fileBytes)
 
         let snapshot = try await ScanCoordinator(processInspector: StubProcessInspector())
             .scan(configuration: scanConfiguration(home: home, projectRoots: [project]))
