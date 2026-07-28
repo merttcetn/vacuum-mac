@@ -1,0 +1,93 @@
+name: Vacuum
+options:
+  minimumXcodeGenVersion: 2.46.0
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+configs:
+  Debug: debug
+  Release: release
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    CLANG_WARN_DOCUMENTATION_COMMENTS: YES
+    GCC_TREAT_WARNINGS_AS_ERRORS: YES
+    SWIFT_TREAT_WARNINGS_AS_ERRORS: YES
+    ENABLE_HARDENED_RUNTIME: YES
+    CODE_SIGN_INJECT_BASE_ENTITLEMENTS: YES
+packages:
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    exactVersion: 2.9.4
+targets:
+  VacuumCore:
+    type: library.static
+    platform: macOS
+    sources:
+      - Sources/VacuumCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mertcetin.vacuum.core
+        DEFINES_MODULE: YES
+        SKIP_INSTALL: YES
+        BUILD_LIBRARY_FOR_DISTRIBUTION: YES
+        ARCHS: arm64 x86_64
+        ONLY_ACTIVE_ARCH: NO
+  Vacuum:
+    type: application
+    platform: macOS
+    sources:
+      - Sources/Vacuum
+    dependencies:
+      - target: VacuumCore
+      - package: Sparkle
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mertcetin.vacuum
+        PRODUCT_NAME: Vacuum
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Config/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Vacuum.entitlements
+        MARKETING_VERSION: 0.1.0-beta.1
+        CURRENT_PROJECT_VERSION: 1
+        ARCHS: arm64 x86_64
+        ONLY_ACTIVE_ARCH: NO
+
+  VacuumCoreTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - Tests/VacuumCoreTests
+    dependencies:
+      - target: VacuumCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mertcetin.vacuum.core-tests
+        GENERATE_INFOPLIST_FILE: YES
+        ENABLE_HARDENED_RUNTIME: NO
+  VacuumUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    sources:
+      - Tests/VacuumUITests
+    dependencies:
+      - target: Vacuum
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mertcetin.vacuum.ui-tests
+        GENERATE_INFOPLIST_FILE: YES
+        ENABLE_HARDENED_RUNTIME: NO
+schemes:
+  Vacuum:
+    build:
+      targets:
+        Vacuum: all
+        VacuumCoreTests: [test]
+        VacuumUITests: [test]
+    test:
+      gatherCoverageData: true
+      targets:
+        - VacuumCoreTests
+        - VacuumUITests

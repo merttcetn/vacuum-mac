@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Private vulnerability report
+    url: https://github.com/merttcetn/vacuum-mac/security/advisories/new
+    about: Report security issues privately; never include sensitive paths in a public issue.

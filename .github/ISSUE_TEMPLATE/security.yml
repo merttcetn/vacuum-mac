@@ -1,0 +1,16 @@
+name: Security report
+description: Do not disclose a vulnerability in a public issue.
+title: "Please use private vulnerability reporting"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please close this form and use GitHub's private vulnerability reporting:
+        **Security → Advisories → Report a vulnerability**.
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I will report this privately and will not submit this public issue.
+          required: true

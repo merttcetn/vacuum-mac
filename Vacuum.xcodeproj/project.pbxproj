@@ -1,0 +1,778 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2FCDF08088D77177EEA180F7 /* ScanCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37762A05B1C28801A8F22AD6 /* ScanCoordinator.swift */; };
+		3B9AD5152F795F0FCAE917D7 /* FileSystemSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6358BCF58868B47A1AB5D /* FileSystemSafetyTests.swift */; };
+		523CBB471B686E8F392A7EE1 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD059C704761BE105FD8CF9A /* ModelTests.swift */; };
+		54058716F945E0222604D336 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6B85766087B7ACDD2CF79 /* MenuBarView.swift */; };
+		633158667359C5F8152DE726 /* FileSystemSafety.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8E94A8E6B381F64C05836F /* FileSystemSafety.swift */; };
+		6531A67EE17ECD57073EA05F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43C56E91BDA8BDD9FFEEF54 /* OnboardingView.swift */; };
+		797013A7C4C4A17BDDBDC2C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E48BBC379779D65589E4009 /* SettingsView.swift */; };
+		79D04E21F8D92B294AF4E45E /* ScanCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A61D17F62FAAEBA36391F4 /* ScanCoordinatorTests.swift */; };
+		82E1815259EBD516452FC52A /* CacheRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEC1A7F300B7B2C5CE94C9 /* CacheRule.swift */; };
+		864BC526922DAA07A3A5E2E4 /* CleanupHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B1E90642CA442642D68BF /* CleanupHistoryStore.swift */; };
+		879E8CAE3F28B37B18F51DF1 /* VacuumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41404D1EEE2280DA252AF8D /* VacuumApp.swift */; };
+		8AE4A0A6C4243F4819FA9BDA /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A4E33DC71513B616C13E0D /* TestSupport.swift */; };
+		8ED1B9CEF9DBF9FF35BBED45 /* UpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC749A3BD36128A6828E52B /* UpdateController.swift */; };
+		A26F403C924F2AD79615ADF9 /* CleanupCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0827DC6E075A1BF7D0577205 /* CleanupCoordinatorTests.swift */; };
+		A9B4046EE72CC86567247AAE /* CleanupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F26C849281E2FFB432269D /* CleanupCoordinator.swift */; };
+		AFD50AF2641CFFE1E7FADD62 /* CleanupHistoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884505A0D9801C053919A43 /* CleanupHistoryStoreTests.swift */; };
+		B1E91FD04A59CBD00985218E /* VacuumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C41A951A0D211CBF335799 /* VacuumUITests.swift */; };
+		B1ECA79941DEC91B09B14F9C /* libVacuumCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F70366502023DBA61DCEFBE /* libVacuumCore.a */; };
+		B623587EB3B0F3A9FEE6745F /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = D4C33B1CD5BB65BEA8F23FE9 /* Sparkle */; };
+		B855A341D2E1829983202C55 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86357B9927537E034F7ECB /* AppModel.swift */; };
+		CD829EB8A969916A4AFE6DB6 /* libVacuumCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F70366502023DBA61DCEFBE /* libVacuumCore.a */; };
+		DB95393FC0CB42CE99201D9A /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD30CAEAA9626E06EC7D3A7 /* DetailsView.swift */; };
+		DE1FB880EC2CC2CE30201CB2 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D867F47436CC0C6ED80D26 /* HistoryView.swift */; };
+		E8AEA8B552CB55382796A239 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AA2D2D9E19B90E1F04DB2C /* Components.swift */; };
+		EDCC027B583B0D92826B10A3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4AA0A0626D12CD8F7FE516 /* Models.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6D7139861D7A37737BAFACA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CB9BBDAF33ADAB4CF7F2E42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68288C435369DB465A851CAF;
+			remoteInfo = Vacuum;
+		};
+		968BDD23726F8C1619E07557 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CB9BBDAF33ADAB4CF7F2E42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EBB5BD74347976360FD6CB9;
+			remoteInfo = VacuumCore;
+		};
+		9950C12595AA2CDC4E5CDD7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CB9BBDAF33ADAB4CF7F2E42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EBB5BD74347976360FD6CB9;
+			remoteInfo = VacuumCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01F26C849281E2FFB432269D /* CleanupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupCoordinator.swift; sourceTree = "<group>"; };
+		0827DC6E075A1BF7D0577205 /* CleanupCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupCoordinatorTests.swift; sourceTree = "<group>"; };
+		09AEC1A7F300B7B2C5CE94C9 /* CacheRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheRule.swift; sourceTree = "<group>"; };
+		0B638DB07FB07DE715F875B1 /* VacuumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VacuumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FD6B85766087B7ACDD2CF79 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		1AD30CAEAA9626E06EC7D3A7 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		1F70366502023DBA61DCEFBE /* libVacuumCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVacuumCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		326B1E90642CA442642D68BF /* CleanupHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupHistoryStore.swift; sourceTree = "<group>"; };
+		37762A05B1C28801A8F22AD6 /* ScanCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCoordinator.swift; sourceTree = "<group>"; };
+		3AC749A3BD36128A6828E52B /* UpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateController.swift; sourceTree = "<group>"; };
+		41C41A951A0D211CBF335799 /* VacuumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacuumUITests.swift; sourceTree = "<group>"; };
+		55A4E33DC71513B616C13E0D /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
+		6E48BBC379779D65589E4009 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		99A6358BCF58868B47A1AB5D /* FileSystemSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemSafetyTests.swift; sourceTree = "<group>"; };
+		9C8E94A8E6B381F64C05836F /* FileSystemSafety.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemSafety.swift; sourceTree = "<group>"; };
+		AD059C704761BE105FD8CF9A /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		AE9575488583945C7C2D9D0C /* Vacuum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vacuum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B43C56E91BDA8BDD9FFEEF54 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B884505A0D9801C053919A43 /* CleanupHistoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupHistoryStoreTests.swift; sourceTree = "<group>"; };
+		B9A61D17F62FAAEBA36391F4 /* ScanCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCoordinatorTests.swift; sourceTree = "<group>"; };
+		BA4AA0A0626D12CD8F7FE516 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		BD655019AD66160462CAC6C8 /* VacuumCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VacuumCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D867F47436CC0C6ED80D26 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		C41404D1EEE2280DA252AF8D /* VacuumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacuumApp.swift; sourceTree = "<group>"; };
+		DA86357B9927537E034F7ECB /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		F1AA2D2D9E19B90E1F04DB2C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F326BA5575C3A702CBEF7AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1ECA79941DEC91B09B14F9C /* libVacuumCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		935139ED26DD84747C13F506 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD829EB8A969916A4AFE6DB6 /* libVacuumCore.a in Frameworks */,
+				B623587EB3B0F3A9FEE6745F /* Sparkle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5506422AABC2F0F3F05DBA4F /* VacuumUITests */ = {
+			isa = PBXGroup;
+			children = (
+				41C41A951A0D211CBF335799 /* VacuumUITests.swift */,
+			);
+			path = VacuumUITests;
+			sourceTree = "<group>";
+		};
+		63D86FAFEAF61FFA96DF806A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C2F2084A13DBCF18A46BEEB4 /* Vacuum */,
+				D2F6E6C3042A62C2A8D4B8FD /* VacuumCore */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6B6B5DCFA5F1D1D1953F656B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				753AA9A455167FBA95647D78 /* VacuumCoreTests */,
+				5506422AABC2F0F3F05DBA4F /* VacuumUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		753AA9A455167FBA95647D78 /* VacuumCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				0827DC6E075A1BF7D0577205 /* CleanupCoordinatorTests.swift */,
+				B884505A0D9801C053919A43 /* CleanupHistoryStoreTests.swift */,
+				99A6358BCF58868B47A1AB5D /* FileSystemSafetyTests.swift */,
+				AD059C704761BE105FD8CF9A /* ModelTests.swift */,
+				B9A61D17F62FAAEBA36391F4 /* ScanCoordinatorTests.swift */,
+				55A4E33DC71513B616C13E0D /* TestSupport.swift */,
+			);
+			path = VacuumCoreTests;
+			sourceTree = "<group>";
+		};
+		7E403045D323FE28FD04C9D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F70366502023DBA61DCEFBE /* libVacuumCore.a */,
+				AE9575488583945C7C2D9D0C /* Vacuum.app */,
+				BD655019AD66160462CAC6C8 /* VacuumCoreTests.xctest */,
+				0B638DB07FB07DE715F875B1 /* VacuumUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2F2084A13DBCF18A46BEEB4 /* Vacuum */ = {
+			isa = PBXGroup;
+			children = (
+				DA86357B9927537E034F7ECB /* AppModel.swift */,
+				3AC749A3BD36128A6828E52B /* UpdateController.swift */,
+				C41404D1EEE2280DA252AF8D /* VacuumApp.swift */,
+				EA5FF10CC15BB3FBC30847D8 /* Views */,
+			);
+			path = Vacuum;
+			sourceTree = "<group>";
+		};
+		D2F6E6C3042A62C2A8D4B8FD /* VacuumCore */ = {
+			isa = PBXGroup;
+			children = (
+				09AEC1A7F300B7B2C5CE94C9 /* CacheRule.swift */,
+				01F26C849281E2FFB432269D /* CleanupCoordinator.swift */,
+				326B1E90642CA442642D68BF /* CleanupHistoryStore.swift */,
+				9C8E94A8E6B381F64C05836F /* FileSystemSafety.swift */,
+				BA4AA0A0626D12CD8F7FE516 /* Models.swift */,
+				37762A05B1C28801A8F22AD6 /* ScanCoordinator.swift */,
+			);
+			path = VacuumCore;
+			sourceTree = "<group>";
+		};
+		EA5FF10CC15BB3FBC30847D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1AA2D2D9E19B90E1F04DB2C /* Components.swift */,
+				1AD30CAEAA9626E06EC7D3A7 /* DetailsView.swift */,
+				C0D867F47436CC0C6ED80D26 /* HistoryView.swift */,
+				0FD6B85766087B7ACDD2CF79 /* MenuBarView.swift */,
+				B43C56E91BDA8BDD9FFEEF54 /* OnboardingView.swift */,
+				6E48BBC379779D65589E4009 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB1820C226B9AD9F911E0B5A = {
+			isa = PBXGroup;
+			children = (
+				63D86FAFEAF61FFA96DF806A /* Sources */,
+				6B6B5DCFA5F1D1D1953F656B /* Tests */,
+				7E403045D323FE28FD04C9D4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1298237006B10A49F3149CFE /* VacuumCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6CCE60C48E0420ADAD1A8FA /* Build configuration list for PBXNativeTarget "VacuumCoreTests" */;
+			buildPhases = (
+				236914E231935F62A1622EDC /* Sources */,
+				5F326BA5575C3A702CBEF7AD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B732948FF8B900C51EAECD0 /* PBXTargetDependency */,
+			);
+			name = VacuumCoreTests;
+			packageProductDependencies = (
+			);
+			productName = VacuumCoreTests;
+			productReference = BD655019AD66160462CAC6C8 /* VacuumCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2EBB5BD74347976360FD6CB9 /* VacuumCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33AD3A5C50EDBEA8EF3D5FEF /* Build configuration list for PBXNativeTarget "VacuumCore" */;
+			buildPhases = (
+				D278A6E94599017788194914 /* Sources */,
+				EAC417201FF42B43B64AB50A /* Copy Swift Objective-C Interface Header */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VacuumCore;
+			packageProductDependencies = (
+			);
+			productName = VacuumCore;
+			productReference = 1F70366502023DBA61DCEFBE /* libVacuumCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3BD30113B4A091008DB031B8 /* VacuumUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CE528B34A58A96D93F6088D /* Build configuration list for PBXNativeTarget "VacuumUITests" */;
+			buildPhases = (
+				2A67985CE2340421CE009523 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6A01358D7C973EDB5E41F54 /* PBXTargetDependency */,
+			);
+			name = VacuumUITests;
+			packageProductDependencies = (
+			);
+			productName = VacuumUITests;
+			productReference = 0B638DB07FB07DE715F875B1 /* VacuumUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		68288C435369DB465A851CAF /* Vacuum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B5E1C1547FD56E0FACA6744 /* Build configuration list for PBXNativeTarget "Vacuum" */;
+			buildPhases = (
+				955D22BFC67BA8772484FB7B /* Sources */,
+				935139ED26DD84747C13F506 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D74D4E37F0A242952005E96A /* PBXTargetDependency */,
+			);
+			name = Vacuum;
+			packageProductDependencies = (
+				D4C33B1CD5BB65BEA8F23FE9 /* Sparkle */,
+			);
+			productName = Vacuum;
+			productReference = AE9575488583945C7C2D9D0C /* Vacuum.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3CB9BBDAF33ADAB4CF7F2E42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3BD30113B4A091008DB031B8 = {
+						TestTargetID = 68288C435369DB465A851CAF;
+					};
+				};
+			};
+			buildConfigurationList = 793CAC7E15B1FCAD17897A3B /* Build configuration list for PBXProject "Vacuum" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = FB1820C226B9AD9F911E0B5A;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				20D6DB71FA216C47D37B4C9D /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7E403045D323FE28FD04C9D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2EBB5BD74347976360FD6CB9 /* VacuumCore */,
+				68288C435369DB465A851CAF /* Vacuum */,
+				1298237006B10A49F3149CFE /* VacuumCoreTests */,
+				3BD30113B4A091008DB031B8 /* VacuumUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EAC417201FF42B43B64AB50A /* Copy Swift Objective-C Interface Header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(DERIVED_SOURCES_DIR)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+			);
+			name = "Copy Swift Objective-C Interface Header";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/include/$(PRODUCT_MODULE_NAME)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ditto \"${SCRIPT_INPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		236914E231935F62A1622EDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A26F403C924F2AD79615ADF9 /* CleanupCoordinatorTests.swift in Sources */,
+				AFD50AF2641CFFE1E7FADD62 /* CleanupHistoryStoreTests.swift in Sources */,
+				3B9AD5152F795F0FCAE917D7 /* FileSystemSafetyTests.swift in Sources */,
+				523CBB471B686E8F392A7EE1 /* ModelTests.swift in Sources */,
+				79D04E21F8D92B294AF4E45E /* ScanCoordinatorTests.swift in Sources */,
+				8AE4A0A6C4243F4819FA9BDA /* TestSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A67985CE2340421CE009523 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E91FD04A59CBD00985218E /* VacuumUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		955D22BFC67BA8772484FB7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B855A341D2E1829983202C55 /* AppModel.swift in Sources */,
+				E8AEA8B552CB55382796A239 /* Components.swift in Sources */,
+				DB95393FC0CB42CE99201D9A /* DetailsView.swift in Sources */,
+				DE1FB880EC2CC2CE30201CB2 /* HistoryView.swift in Sources */,
+				54058716F945E0222604D336 /* MenuBarView.swift in Sources */,
+				6531A67EE17ECD57073EA05F /* OnboardingView.swift in Sources */,
+				797013A7C4C4A17BDDBDC2C1 /* SettingsView.swift in Sources */,
+				8ED1B9CEF9DBF9FF35BBED45 /* UpdateController.swift in Sources */,
+				879E8CAE3F28B37B18F51DF1 /* VacuumApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D278A6E94599017788194914 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82E1815259EBD516452FC52A /* CacheRule.swift in Sources */,
+				A9B4046EE72CC86567247AAE /* CleanupCoordinator.swift in Sources */,
+				864BC526922DAA07A3A5E2E4 /* CleanupHistoryStore.swift in Sources */,
+				633158667359C5F8152DE726 /* FileSystemSafety.swift in Sources */,
+				EDCC027B583B0D92826B10A3 /* Models.swift in Sources */,
+				2FCDF08088D77177EEA180F7 /* ScanCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B732948FF8B900C51EAECD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EBB5BD74347976360FD6CB9 /* VacuumCore */;
+			targetProxy = 9950C12595AA2CDC4E5CDD7F /* PBXContainerItemProxy */;
+		};
+		D74D4E37F0A242952005E96A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EBB5BD74347976360FD6CB9 /* VacuumCore */;
+			targetProxy = 968BDD23726F8C1619E07557 /* PBXContainerItemProxy */;
+		};
+		F6A01358D7C973EDB5E41F54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68288C435369DB465A851CAF /* Vacuum */;
+			targetProxy = 6D7139861D7A37737BAFACA4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		50E3F5601025DD57AD67C812 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mertcetin.vacuum.ui-tests";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = Vacuum;
+			};
+			name = Release;
+		};
+		6480917ABA0AB880CD5431DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mertcetin.vacuum.core-tests";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		678B810D40EF4073B7BB2263 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "arm64 x86_64";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Vacuum.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = "0.1.0-beta.1";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mertcetin.vacuum;
+				PRODUCT_NAME = Vacuum;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E5A6ACBA745938792B319F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "arm64 x86_64";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Vacuum.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = "0.1.0-beta.1";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mertcetin.vacuum;
+				PRODUCT_NAME = Vacuum;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9EBEC17FCA87094FDFA08ED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		9FEDCFD08FEE52100103A626 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "arm64 x86_64";
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mertcetin.vacuum.core;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A6FADD3D8588A281C7B17170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mertcetin.vacuum.ui-tests";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = Vacuum;
+			};
+			name = Debug;
+		};
+		B1ADF814061EADECBD68480D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "arm64 x86_64";
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mertcetin.vacuum.core;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B5DE07A4C6954F07E4DB05E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		B67BCBE8F888F44FEC2F13F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mertcetin.vacuum.core-tests";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33AD3A5C50EDBEA8EF3D5FEF /* Build configuration list for PBXNativeTarget "VacuumCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FEDCFD08FEE52100103A626 /* Debug */,
+				B1ADF814061EADECBD68480D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4CE528B34A58A96D93F6088D /* Build configuration list for PBXNativeTarget "VacuumUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6FADD3D8588A281C7B17170 /* Debug */,
+				50E3F5601025DD57AD67C812 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5B5E1C1547FD56E0FACA6744 /* Build configuration list for PBXNativeTarget "Vacuum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				678B810D40EF4073B7BB2263 /* Debug */,
+				6E5A6ACBA745938792B319F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		793CAC7E15B1FCAD17897A3B /* Build configuration list for PBXProject "Vacuum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5DE07A4C6954F07E4DB05E3 /* Debug */,
+				9EBEC17FCA87094FDFA08ED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C6CCE60C48E0420ADAD1A8FA /* Build configuration list for PBXNativeTarget "VacuumCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B67BCBE8F888F44FEC2F13F8 /* Debug */,
+				6480917ABA0AB880CD5431DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20D6DB71FA216C47D37B4C9D /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = exactVersion;
+				version = 2.9.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D4C33B1CD5BB65BEA8F23FE9 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20D6DB71FA216C47D37B4C9D /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3CB9BBDAF33ADAB4CF7F2E42 /* Project object */;
+}
