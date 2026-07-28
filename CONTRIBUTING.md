@@ -10,7 +10,7 @@ Use macOS 14 or newer, Xcode 16.4 or newer, and XcodeGen 2.46.0. Generate
 
 ```sh
 scripts/install-xcodegen.sh
-export PATH="${TMPDIR:-/tmp}/vacuum-xcodegen/bin:${PATH}"
+export PATH="${TMPDIR:-/tmp}/vacuum-xcodegen/xcodegen/bin:${PATH}"
 xcodegen generate --spec project.yml
 xcodebuild \
   -project Vacuum.xcodeproj \

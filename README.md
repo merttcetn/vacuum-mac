@@ -53,7 +53,7 @@ access and can be disabled in Settings.
 
 ```sh
 scripts/install-xcodegen.sh
-export PATH="${TMPDIR:-/tmp}/vacuum-xcodegen/bin:${PATH}"
+export PATH="${TMPDIR:-/tmp}/vacuum-xcodegen/xcodegen/bin:${PATH}"
 xcodegen generate --spec project.yml
 xcodebuild \
   -project Vacuum.xcodeproj \
